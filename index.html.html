@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Bunai – Lovecrafted by 4V</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #ffdce6;
+      --secondary: #68adc4;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Open Sans', sans-serif;
+    }
+    body {
+      margin: 0;
+      background: var(--primary);
+      font-family: var(--font-body);
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem 1rem;
+      background: var(--primary);
+    }
+    .logo {
+      width: 120px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-family: var(--font-heading);
+      color: var(--secondary);
+      font-size: 2.2rem;
+      margin: 0.5rem 0 0.2rem 0;
+    }
+    .tagline {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    nav {
+      background: var(--secondary);
+      padding: 0.5rem 0;
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      transition: text-decoration 0.2s;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(104, 173, 196, 0.07);
+      padding: 2rem 1.5rem;
+    }
+    .section-title {
+      color: var(--secondary);
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      margin-top: 2rem;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .product-card {
+      background: var(--primary);
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 1px 6px rgba(104, 173, 196, 0.09);
+      text-align: center;
+      transition: box-shadow 0.2s;
+    }
+    .product-card:hover {
+      box-shadow: 0 4px 20px rgba(104, 173, 196, 0.18);
+    }
+    .product-img {
+      width: 100%;
+      max-width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 0.7rem;
+      background: #eee;
+    }
+    .product-title {
+      font-family: var(--font-heading);
+      color: var(--secondary);
+      font-size: 1.1rem;
+      margin: 0.3rem 0;
+    }
+    .product-info {
+      font-size: 0.96rem;
+      color: #555;
+      margin-bottom: 0.5rem;
+    }
+    .product-price {
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 0.7rem;
+    }
+    .order-btn {
+      background: var(--secondary);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .order-btn:hover {
+      background: #4b8aa4;
+    }
+    .about, .instagram, .order-form {
+      margin-bottom: 2rem;
+    }
+    .about-text {
+      font-size: 1.08rem;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .insta-feed {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+    }
+    .insta-img {
+      width: 110px;
+      height: 110px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: #eee;
+      flex-shrink: 0;
+    }
+    .order-form label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+    .order-form input, .order-form select, .order-form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #c1e2ef;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: var(--font-body);
+      background: #f6fafd;
+    }
+    .order-form button {
+      background: var(--secondary);
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 6px;
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .order-form button:hover {
+      background: #4b8aa4;
+    }
+    footer {
+      background: var(--secondary);
+      color: #fff;
+      text-align: center;
+      padding: 1.2rem 0 0.8rem 0;
+      font-size: 1rem;
+      border-radius: 0 0 16px 16px;
+      margin-top: 2rem;
+    }
+    @media (max-width: 600px) {
+      main {
+        padding: 1rem 0.3rem;
+      }
+      .products {
+        grid-template-columns: 1fr;
+      }
+      .insta-feed {
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://pplx-res.cloudinary.com/image/private/user_uploads/RhosRJcqhnwBqno/IMG-20250430-WA0011.jpg" alt="Bunai Logo" class="logo">
+    <h1>Bunai</h1>
+    <div class="tagline">Lovecrafted by 4V</div>
+  </header>
+  <nav>
+    <a href="#products">Shop</a>
+    <a href="#about">About</a>
+    <a href="#instagram">Instagram</a>
+    <a href="#order">Order</a>
+  </nav>
+  <main>
+    <section id="products">
+      <div class="section-title">Our Pouches</div>
+      <div class="products">
+        <!-- Example Product Card -->
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" alt="Classic Pink Pouch" class="product-img">
+          <div class="product-title">Classic Pink Pouch</div>
+          <div class="product-info">
+            Material: Organic Cotton<br>
+            Lining: Soft Satin<br>
+            Sizes: S, M, L
+          </div>
+          <div class="product-price">₹399 – ₹599</div>
+          <button class="order-btn" onclick="document.getElementById('order').scrollIntoView({behavior: 'smooth'})">Order Now</button>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Blue Utility Pouch" class="product-img">
+          <div class="product-title">Blue Utility Pouch</div>
+          <div class="product-info">
+            Material: Recycled Denim<br>
+            Lining: Cotton Canvas<br>
+            Sizes: M, L
+          </div>
+          <div class="product-price">₹449 – ₹649</div>
+          <button class="order-btn" onclick="document.getElementById('order').scrollIntoView({behavior: 'smooth'})">Order Now</button>
+        </div>
+        <!-- Add more product cards as needed -->
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="section-title">About Bunai</div>
+      <div class="about-text">
+        Bunai – Lovecrafted by 4V creates sustainable, cute pouches designed to organize your space and match your aesthetic. Each pouch is multipurpose and spacious, crafted from eco-friendly materials with attention to quality and detail. Our mission is to make organization beautiful, functional, and earth-friendly for young adults who value both utility and style.
+      </div>
+      <div class="about-text">
+        <strong>Why choose Bunai?</strong>
+        <ul>
+          <li>Eco-conscious, sustainable materials</li>
+          <li>Multipurpose & spacious for all essentials</li>
+          <li>Chic designs in pink & blue to match your vibe</li>
+          <li>Handcrafted with love and care</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="instagram" class="instagram">
+      <div class="section-title">From Our Instagram</div>
+      <div class="insta-feed">
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Insta 1" class="insta-img">
+        <img src="https://images.unsplash.com/photo-1519985176271-adb1088fa94c?auto=format&fit=crop&w=400&q=80" alt="Insta 2" class="insta-img">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Insta 3" class="insta-img">
+        <!-- Replace with your actual Instagram shots -->
+      </div>
+      <div style="font-size:0.97rem;color:#68adc4;">
+        <em>Follow us <strong>@bunai.lovecrafted</strong> for more inspiration!</em>
+      </div>
+    </section>
+
+    <section id="order" class="order-form">
+      <div class="section-title">Order Your Pouch</div>
+      <form>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required pattern="[0-9]{10,}">
+
+        <label for="address">Delivery Address</label>
+        <textarea id="address" name="address" rows="2" required></textarea>
+
+        <label for="product">Select Product</label>
+        <select id="product" name="product" required>
+          <option value="">Choose a product</option>
+          <option value="Classic Pink Pouch">Classic Pink Pouch</option>
+          <option value="Blue Utility Pouch">Blue Utility Pouch</option>
+        </select>
+
+        <label for="size">Select Size</label>
+        <select id="size" name="size" required>
+          <option value="">Choose size</option>
+          <option value="Small">Small</option>
+          <option value="Medium">Medium</option>
+          <option value="Large">Large</option>
+        </select>
+
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+
+        <button type="submit">Place Order</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Bunai – Lovecrafted by 4V. All rights reserved.
+  </footer>
+</body>
+</html>
